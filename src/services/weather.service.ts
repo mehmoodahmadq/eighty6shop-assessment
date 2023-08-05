@@ -18,6 +18,7 @@ export class WeatherService {
       moment(date).format('YYYY-MM-DD HH:mm:ss'),
       moment(date).add('1', 'hours').format('YYYY-MM-DD HH:mm:ss'),
       moment(date).add('2', 'hours').format('YYYY-MM-DD HH:mm:ss'),
+      moment(date).add('3', 'hours').format('YYYY-MM-DD HH:mm:ss')
     ];
 
     const { data } = await firstValueFrom(
