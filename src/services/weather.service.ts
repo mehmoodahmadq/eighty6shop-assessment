@@ -20,8 +20,6 @@ export class WeatherService {
       moment(date).add('2', 'hours').format('YYYY-MM-DD HH:mm:ss'),
     ];
 
-    console.log(dates);
-
     const { data } = await firstValueFrom(
       this.httpService.get(
         `http://api.openweathermap.org/data/2.5/forecast?lat=39.9526&lon=75.1652&appid=${this.config.get(

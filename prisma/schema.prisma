@@ -9,3 +9,18 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model indigo {
+  id           Int      @id @default(autoincrement())
+  last_updated DateTime
+  data         Json
+  created_at   DateTime @default(now())
+}
+
+model weather {
+  id           Int      @id @default(autoincrement())
+  datetime     DateTime
+  weather_data Json
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
