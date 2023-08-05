@@ -12,6 +12,7 @@ import { WeatherService } from './services/weather.service';
 import { CronService } from './services/cron.service';
 import { SessionMiddleware } from './middlewares/session.middleware';
 import { HttpModule } from '@nestjs/axios';
+import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { HttpModule } from '@nestjs/axios';
     ConfigModule.forRoot({
       load: [configuration],
     }),
+    PrismaModule,
   ],
   controllers: [AppController, StationController],
   providers: [StationService, WeatherService, CronService],
