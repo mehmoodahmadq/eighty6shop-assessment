@@ -8,6 +8,9 @@ export class CronService {
 
   constructor(private readonly stationService: StationService) {}
 
+  /**
+   * This functions runs after every hour to fetch the latest indigo data
+   */
   @Cron('0 * * * *')
   async handleCron() {
     this.logger.log('Called');

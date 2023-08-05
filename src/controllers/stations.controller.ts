@@ -10,6 +10,9 @@ export class StationController {
     private readonly stationService: StationService,
   ) {}
 
+  /**
+   * Get the data of all stations based on provided date-
+   */
   @Post('/api/v1/stations')
   async getAll(@Res() res, @Query() query) {
     if (!query.at) {
@@ -24,6 +27,9 @@ export class StationController {
     return res.status(200).json({ at: query.at, station, weather });
   }
 
+  /**
+   * Get the data of all stations based on provided date and kioskid
+   */
   @Post('/api/v1/stations/:kioskid')
   async getOne(@Res() res, @Query() query, @Param('kioskid') kioskid) {
     if (!query.at) {

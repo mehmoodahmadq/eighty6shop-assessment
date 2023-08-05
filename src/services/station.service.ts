@@ -12,9 +12,12 @@ export class StationService {
     private prisma: PrismaService,
   ) {}
 
+  /**
+   * This function returns indigo data based on date time and kioskid provided.
+   * @param {string} dateString - date time string
+   * @param {string} kioskid - (Optional, kioskid for getting specific record)
+   */
   public async get(dateString: string, kioskid?: string) {
-    await this.fetchData();
-
     const date = new Date(dateString);
 
     const data: any = await this.prisma.indigo.findFirst({
@@ -35,6 +38,9 @@ export class StationService {
     }
   }
 
+  /**
+   * This function fetches the data from indigo and saves in the database
+   */
   public async fetchData() {
     const { data } = await firstValueFrom(
       this.httpService.get(`https://www.rideindego.com/stations/json/`),
