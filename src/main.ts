@@ -9,6 +9,15 @@ async function bootstrap() {
     .setTitle('Eighty6Shop API')
     .setDescription('This is a test API built for Eighty6Shop')
     .setVersion('0.0.1')
+    .addBearerAuth(
+      {
+        description: `[just text field] Please provide token`,
+        name: 'Authorization',
+        type: 'http',
+        in: 'Header',
+      },
+      'atoken',
+    )
     .build();
 
   const document = SwaggerModule.createDocument(app, config);

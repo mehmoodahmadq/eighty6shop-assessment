@@ -1,10 +1,9 @@
 import { Controller, Get } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('Status')
 @Controller()
 export class AppController {
-  constructor(private readonly config: ConfigService) {}
-
   /**
    * API status endpoint
    */

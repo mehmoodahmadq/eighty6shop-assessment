@@ -35,7 +35,9 @@ export class StationService {
       });
 
       if (kioskid) {
-        return data.data.find((x) => x.properties.id == kioskid);
+        const station = data.data.find((x) => x.properties.id == kioskid);
+        if (station) return station;
+        throw new HttpException('Station not found', HttpStatus.NOT_FOUND);
       } else {
         return data;
       }
