@@ -11,7 +11,16 @@ export class StationController {
   ) {}
 
   /**
-   * Get the data of all stations based on provided date-
+   * This endpoint is used to fetch latest data from indigo API and save in DB
+   */
+  @Post('api/v1/indego-data-fetch-and-store-it-db')
+  async fetch(@Res() res) {
+    await this.stationService.fetchData();
+    return res.status(200).json({ status: 'latest indigo data fetched' });
+  }
+
+  /**
+   * Get the data of all stations based on provided date
    */
   @Post('/api/v1/stations')
   async getAll(@Res() res, @Query() query) {

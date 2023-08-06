@@ -28,8 +28,13 @@ import { PrismaModule } from './prisma/prisma.module';
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer
-      .apply(SessionMiddleware)
-      .forRoutes({ path: '/api/v1/stations', method: RequestMethod.POST });
+    consumer.apply(SessionMiddleware).forRoutes(
+      {
+        path: 'api/v1/indego-data-fetch-and-store-it-db',
+        method: RequestMethod.POST,
+      },
+      { path: '/api/v1/stations', method: RequestMethod.POST },
+      { path: '/api/v1/stations/:kioskid', method: RequestMethod.POST },
+    );
   }
 }
