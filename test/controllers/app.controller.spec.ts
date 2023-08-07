@@ -1,4 +1,4 @@
-import { AppController } from './app.controller';
+import { AppController } from '../../src/controllers/app.controller';
 
 describe('AppController', () => {
   let appController: AppController;

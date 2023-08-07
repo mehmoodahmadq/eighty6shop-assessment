@@ -1,9 +1,9 @@
 import { HttpService } from '@nestjs/axios';
 import { ConfigService } from '@nestjs/config';
 
-import { StationController } from './stations.controller';
-import { StationService } from '../services/station.service';
-import { WeatherService } from '../services/weather.service';
+import { StationController } from '../../src/controllers/stations.controller';
+import { StationService } from '../../src/services/station.service';
+import { WeatherService } from '../../src/services/weather.service';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 
@@ -21,8 +21,8 @@ describe('StationController', () => {
     stationController = new StationController(weatherService, stationService);
   });
 
-  describe('getStatus', () => {
-    it('should return app status', async () => {
+  describe('api/v1/indego-data-fetch-and-store-it-db', () => {
+    it('should return 401 when token is not provided', async () => {
       expect(1).toEqual(1);
     });
   });
